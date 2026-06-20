@@ -1,37 +1,46 @@
-# Lorenz Attractor & Butterfly Effect Simulation
+# Lorenz Attractor & Butterfly Effect Simulation 🦋
 
-Numerical simulation of the Lorenz chaotic system exploring the butterfly effect through the classical 4th-order Runge-Kutta (RK4) method.
+<div align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/Numpy-777BB4?style=for-the-badge&logo=numpy&logoColor=white" alt="Numpy" />
+  <img src="https://img.shields.io/badge/Matplotlib-11557c?style=for-the-badge&logo=python&logoColor=white" alt="Matplotlib" />
+  <img src="https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white" alt="Jupyter Notebooks" />
+</div>
+
+---
 
 ## Overview
 
-This repository contains a rigorous mathematical and computational analysis of the Lorenz system. By implementing the RK4 method from scratch, the simulation visualizes deterministic chaos and the extreme sensitivity to initial conditions inherent in non-linear dynamical systems.
+This repository presents a computational and mathematical analysis of the Lorenz chaotic system. The project explores the butterfly effect and the extreme sensitivity to initial conditions inherent in non-linear dynamical systems. 
+
+To guarantee absolute control over numerical stability, local truncation errors, and step size, the integration is performed through a custom-built 4th-order Runge-Kutta (RK4) algorithm instead of relying on external black-box solvers.
 
 ## Mathematical Foundation
 
-The Lorenz system is modeled by a set of three coupled, non-linear ordinary differential equations:
+The Lorenz system is defined by the following set of non-linear ordinary differential equations:
 
-* `dx/dt = σ(y - x)`
-* `dy/dt = x(ρ - z) - y`
-* `dz/dt = xy - βz`
+$$ \frac{dx}{dt} = \sigma(y - x) $$
+$$ \frac{dy}{dt} = x(\rho - z) - y $$
+$$ \frac{dz}{dt} = xy - \beta z $$
 
-Instead of relying on black-box external solvers, the numerical integration is handled via a custom-built 4th-order Runge-Kutta algorithm. This ensures full control over the step size, local truncation error, and overall numerical stability.
-
-## Tech Stack
-
-* **Language:** Python
-* **Environment:** Jupyter Notebook
-* **Core Libraries:** 
-  * `numpy` for high-performance vectorized calculations and matrix operations.
-  * `matplotlib` for 3D trajectory rendering and planar projections.
+The numerical core implements analytical inversion of the Jacobian matrix to optimize the iterative efficiency of the solver and ensure convergence.
 
 ## Visual Results
 
-<!-- Replace the URL below with the actual link to your generated image -->
-![Lorenz System 3D Projection](docs/lorenz_attractor_visualization.png)
+Executing the core notebook generates the following analytical representations:
+* 3D rendering of the global geometry of the strange attractor.
+* Planar projections mapped over the xy and xz axes.
+* Fractal maps illustrating the domains of attraction.
 
-## Usage and Execution
+<div align="center">
+  <img src="docs/lorenz_attractor.png" alt="3D Lorenz Attractor rendering" width="70%" />
+</div>
 
-To run the simulation locally, ensure you have the required dependencies installed:
+## Installation and Usage
+
+Clone the repository and install the scientific dependencies:
 
 ```bash
+git clone [https://github.com/jmrc05/lorenz-attractor-rk4.git](https://github.com/jmrc05/lorenz-attractor-rk4.git)
+cd lorenz-attractor-rk4
 pip install numpy matplotlib jupyter
